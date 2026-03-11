@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://bkd4t7vdlajbu"]
+
+[ext_resource type="Script" uid="uid://dbnribcv3i57l" path="res://Scenes/main.gd" id="1_r150o"]
+[ext_resource type="Texture2D" uid="uid://boy4wo88sl3n2" path="res://icon.svg" id="2_idj7w"]
+
+[node name="Main" type="Node2D" unique_id=579358052]
+script = ExtResource("1_r150o")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1420497575]
+position = Vector2(584, 272)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_idj7w")
+
+[node name="startButton" type="Button" parent="." unique_id=1521230908]
+offset_left = 264.0
+offset_top = 160.0
+offset_right = 376.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 16
+text = "START"
+
+[node name="settingsButton" type="Button" parent="." unique_id=2100156255]
+offset_left = 264.0
+offset_top = 208.0
+offset_right = 376.0
+offset_bottom = 240.0
+text = "	SETTINGS
+"
+
+[connection signal="pressed" from="startButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="settingsButton" to="." method="_on_settings_button_pressed"]
