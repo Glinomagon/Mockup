@@ -3,4 +3,5 @@
 /android/
 
 # ignore these
+.vscode/
 Config/
