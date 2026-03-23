@@ -1,12 +1,12 @@
 extends Node
 
-var config = ConfigFile.new()
+var config: ConfigFile = ConfigFile.new()
 
 """
 	Config values that gets updated during runtime, settings page should read
 	from here and not directly from config file
 """
-var CONFIG_VALUES = {
+var CONFIG_VALUES: Dictionary = {
 	ConfigConstants.WINDOW:
 		{
 			ConfigConstants.RESOLUTION: "",
@@ -16,7 +16,7 @@ var CONFIG_VALUES = {
 
 func _ready() -> void:
 	# load or create config
-	var err = config.load("res://Config/config.cfg")
+	var err: Error = config.load("res://Config/config.cfg")
 	
 	if err != OK:
 		print("Config file not found, creating new config")
@@ -26,12 +26,12 @@ func _ready() -> void:
 		init_config()
 
 # read values from config file
-func init_config():
+func init_config() -> void:
 	for section in config.get_sections():
-		for value in CONFIG_VALUES[section].keys():
+		for value: String in CONFIG_VALUES[section].keys():
 			CONFIG_VALUES[section][value] = config.get_value(section, value)
 
-func save_value(section: ConfigConstants.CONFIG_SECTION, value_name, value):
+func save_value(section: ConfigConstants.CONFIG_SECTION, value_name: String, value: String) -> void:
 	config.set_value(ConfigConstants.CONFIG_SECTION_TO_STRING[section], value_name, value)
 	# test where this would be in a build
 	config.save("res://Config/config.cfg")

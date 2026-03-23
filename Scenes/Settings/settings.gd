@@ -28,7 +28,6 @@ func _ready() -> void:
 		window_option.add_item(GuiAutoload.WINDOW_MODE_TO_STRING[mode])
 	
 	# set default window_option. If there's nothing from config, just query what it is
-	print(GuiAutoload.current_window_mode)
 	window_option.selected = GuiAutoload.current_window_mode
 	
 	var default_window_mode_option_index = 0
