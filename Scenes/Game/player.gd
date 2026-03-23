@@ -50,7 +50,7 @@ func handle_zoom() -> void:
 		player_camera.zoom = Vector2(snappedf(player_camera.zoom.x + 0.1, 0.1), snappedf(player_camera.zoom.y + 0.1, 0.1))
 		print(player_camera.zoom)
 	elif Input.is_action_just_pressed("zoom_out") && player_camera.zoom > MIN_ZOOM:
-		player_camera.zoom = Vector2(snappedf(player_camera.zoom.x - 0.1, 0.1), snappedf(player_camera.zoom.y + 0.1, 0.1))
+		player_camera.zoom = Vector2(snappedf(player_camera.zoom.x - 0.1, 0.1), snappedf(player_camera.zoom.y - 0.1, 0.1))
 		print(player_camera.zoom)
 
 
