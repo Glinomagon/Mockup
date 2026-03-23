@@ -210,8 +210,9 @@ script = ExtResource("1_8jfvq")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=527898122]
 position = Vector2(0, 3)
-scale = Vector2(0.57139844, 0.8565382)
+scale = Vector2(0.50482965, 0.8565382)
 shape = SubResource("CapsuleShape2D_g50cv")
+debug_color = Color(0.52908313, 0.47057354, 0.8583867, 1)
 
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1021798445]
 z_index = 5
@@ -219,3 +220,5 @@ sprite_frames = SubResource("SpriteFrames_sea8g")
 animation = &"idle"
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=1476011825]
+process_callback = 0
+limit_smoothed = true

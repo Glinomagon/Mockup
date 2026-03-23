@@ -1,12 +1,16 @@
 extends CharacterBody2D
 
-@onready var player_camera: Camera2D = $PlayerCamera
-@onready var player_sprite: AnimatedSprite2D = $PlayerSprite
+@onready var player_camera : Camera2D = $PlayerCamera
+@onready var player_sprite : AnimatedSprite2D = $PlayerSprite
+var is_moving : bool = false
 
 var direction : Vector2 = Vector2.ZERO
 @export var move_speed : int = 20
-const MAX_ZOOM : float = 3.00
-const MIN_ZOOM : float = 1.00
+const MAX_ZOOM : Vector2 = Vector2(3.00, 3.00)
+const MIN_ZOOM : Vector2 = Vector2(2.00, 2.00)
+
+func _ready() -> void:
+	player_camera.zoom = MIN_ZOOM
 
 func set_camera_limit(left : int, right : int, top : int, bottom : int) -> void:
 	player_camera.limit_left = left
@@ -25,19 +29,36 @@ func handle_player_animation() -> void:
 		player_sprite.flip_h = false
 	# maybe delta not needed
 	if Input.is_action_pressed("key_down"):
+		is_moving = true
 		player_sprite.play("walking_front")
 	elif Input.is_action_pressed("key_up"):
+		is_moving = true
 		player_sprite.play("walking_back")
 	elif Input.is_action_pressed("key_left"):
+		is_moving = true
 		player_sprite.play("walking_side")
 	elif Input.is_action_pressed("key_right"):
+		is_moving = true
 		player_sprite.flip_h = true
 		player_sprite.play("walking_side")
 	else:
+		is_moving = false
 		player_sprite.play("idle")
+
+func handle_zoom() -> void:
+	if Input.is_action_just_pressed("zoom_in") && player_camera.zoom < MAX_ZOOM:
+		player_camera.zoom = Vector2(snappedf(player_camera.zoom.x + 0.1, 0.1), snappedf(player_camera.zoom.y + 0.1, 0.1))
+		print(player_camera.zoom)
+	elif Input.is_action_just_pressed("zoom_out") && player_camera.zoom > MIN_ZOOM:
+		player_camera.zoom = Vector2(snappedf(player_camera.zoom.x - 0.1, 0.1), snappedf(player_camera.zoom.y + 0.1, 0.1))
+		print(player_camera.zoom)
+
 
 func _physics_process(delta: float) -> void:
 	handle_player_movement(delta)
-	handle_player_animation()
 	
 	move_and_slide()
+
+func _process(delta: float) -> void:
+	handle_player_animation()
+	handle_zoom()
