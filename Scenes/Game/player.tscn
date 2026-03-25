@@ -11,10 +11,6 @@
 atlas = ExtResource("2_n3abv")
 region = Rect2(0, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_k1yeq"]
-atlas = ExtResource("3_vi63e")
-region = Rect2(0, 0, 16, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_mbi6u"]
 atlas = ExtResource("3_vi63e")
 region = Rect2(16, 0, 16, 32)
@@ -43,8 +39,8 @@ region = Rect2(96, 0, 16, 32)
 atlas = ExtResource("3_vi63e")
 region = Rect2(112, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4x7xd"]
-atlas = ExtResource("2_n3abv")
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1yeq"]
+atlas = ExtResource("3_vi63e")
 region = Rect2(0, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_me5ii"]
@@ -75,8 +71,8 @@ region = Rect2(96, 0, 16, 32)
 atlas = ExtResource("2_n3abv")
 region = Rect2(112, 0, 16, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fh6mt"]
-atlas = ExtResource("4_ajor6")
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x7xd"]
+atlas = ExtResource("2_n3abv")
 region = Rect2(0, 0, 16, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_or34p"]
@@ -107,6 +103,10 @@ region = Rect2(96, 0, 16, 32)
 atlas = ExtResource("4_ajor6")
 region = Rect2(112, 0, 16, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_fh6mt"]
+atlas = ExtResource("4_ajor6")
+region = Rect2(0, 0, 16, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_sea8g"]
 animations = [{
 "frames": [{
@@ -118,9 +118,6 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_k1yeq")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mbi6u")
 }, {
@@ -141,15 +138,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4l56e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1yeq")
 }],
 "loop": true,
 "name": &"walking_back",
 "speed": 8.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4x7xd")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_me5ii")
 }, {
@@ -170,15 +167,15 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_o3fdx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x7xd")
 }],
 "loop": true,
 "name": &"walking_front",
 "speed": 8.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_fh6mt")
-}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_or34p")
 }, {
@@ -199,6 +196,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_y8f7c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fh6mt")
 }],
 "loop": true,
 "name": &"walking_side",
@@ -217,8 +217,8 @@ debug_color = Color(0.52908313, 0.47057354, 0.8583867, 1)
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1021798445]
 z_index = 5
 sprite_frames = SubResource("SpriteFrames_sea8g")
-animation = &"idle"
+animation = &"walking_front"
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=1476011825]
+zoom = Vector2(2, 2)
 process_callback = 0
-limit_smoothed = true
