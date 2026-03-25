@@ -8,4 +8,4 @@ const scene_dir = {
 	"GAME" = "res://Scenes/Game/Game.tscn",
 }
 
-var current_scene = "res://Scenes/Game/test_map.tscn"
+var current_scene : String = "res://Scenes/Game/test_map.tscn"

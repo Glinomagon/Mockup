@@ -31,6 +31,8 @@ ConfigManager="*uid://u0idoo1v6b6x"
 Switcher="*uid://d28ki1mmaoxfm"
 Directory="*uid://2yw6idvkxpsc"
 GuiAutoload="*uid://yuy4sy1373dx"
+GameWorldManager="*uid://bj8k4abk1s5i"
+AudioManager="*uid://b8se85tphph26"
 
 [debug]
 
@@ -43,6 +45,7 @@ window/size/viewport_height=360
 window/size/initial_position_type=3
 window/size/resizable=false
 window/stretch/mode="viewport"
+window/dpi/allow_hidpi=false
 window/vsync/vsync_mode=0
 
 [dotnet]
