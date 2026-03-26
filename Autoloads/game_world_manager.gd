@@ -10,7 +10,7 @@ func init_world(new_player: CharacterBody2D, new_world_map: TileMapLayer, terrai
   world_terrain_types = terrain_types
 
 func get_player_terrain() -> String:
-  var player_feet: Vector2 = Vector2(player.position.x, player.position.y + 16) # get the position of player feet
+  var player_feet: Vector2 = Vector2(player.position.x, player.position.y + 4) # distance of bottom of player feet from origin
   var tile_player_is_on: Vector2 = world_map.local_to_map(player_feet)
   var tile_data: TileData = world_map.get_cell_tile_data(tile_player_is_on)
   if tile_data:
