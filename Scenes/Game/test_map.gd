@@ -1,7 +1,7 @@
 extends Node2D
 
-@onready var base_ground: TileMapLayer = $Path
-@onready var player: CharacterBody2D = $Player
+@onready var base_ground: TileMapLayer = $"Y-Sorting/Map/Path"
+@onready var player: CharacterBody2D = $"Y-Sorting/Player"
 
 var terrain_types: Array[String] = ["Grass", "Dirt"]
 
@@ -13,7 +13,7 @@ func _ready() -> void:
 	var map_size : Vector2 = base_ground.map_to_local(used_rect.size - Vector2i(1, 1))
 	var map_position : Vector2 = base_ground.map_to_local(used_rect.position)
 	
-	get_node("Player").set_camera_limit(
+	player.set_camera_limit(
 		map_position.x,
 		map_position.x + map_size.x,
 		map_position.y,

@@ -5,8 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://cuqs14ua30qy4" path="res://Assets/Malus-back.png" id="3_vi63e"]
 [ext_resource type="Texture2D" uid="uid://f37kdprwfnwg" path="res://Assets/Malus-side.png" id="4_ajor6"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g50cv"]
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_imb1n"]
 atlas = ExtResource("2_n3abv")
 region = Rect2(0, 0, 16, 32)
@@ -205,20 +203,25 @@ animations = [{
 "speed": 8.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8jfvq"]
+radius = 2.0
+height = 6.0
+
 [node name="Player" type="CharacterBody2D" unique_id=1560424296]
+y_sort_enabled = true
 script = ExtResource("1_8jfvq")
 
-[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=527898122]
-position = Vector2(0, 3)
-scale = Vector2(0.50482965, 0.8565382)
-shape = SubResource("CapsuleShape2D_g50cv")
-debug_color = Color(0.52908313, 0.47057354, 0.8583867, 1)
-
 [node name="PlayerSprite" type="AnimatedSprite2D" parent="." unique_id=1021798445]
-z_index = 5
 sprite_frames = SubResource("SpriteFrames_sea8g")
 animation = &"walking_front"
+frame = 3
+offset = Vector2(0, -12)
 
 [node name="PlayerCamera" type="Camera2D" parent="." unique_id=1476011825]
 zoom = Vector2(2, 2)
 process_callback = 0
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=1125653332]
+position = Vector2(0, 2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_8jfvq")
