@@ -17,5 +17,6 @@ func create_new_entity_stream(entity_name : String, stream_name : String, stream
 		add_child(entity_streams[entity_name][stream_name])
 
 func play_entity_stream(entity_name : String, stream_name : String) -> void:
-	if !entity_streams[entity_name][stream_name].playing:
-		entity_streams[entity_name][stream_name].play()
+	if entity_streams[entity_name][stream_name].playing:
+		entity_streams[entity_name][stream_name].stop()
+	entity_streams[entity_name][stream_name].play()

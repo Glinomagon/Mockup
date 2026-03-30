@@ -1,13 +1,15 @@
 extends CharacterBody2D
 
-@onready var player_camera : Camera2D = $PlayerCamera
-@onready var player_sprite : AnimatedSprite2D = $PlayerSprite
-var is_moving : bool = false
-
-var direction : Vector2 = Vector2.ZERO
-@export var move_speed : int = 20
 const MAX_ZOOM : Vector2 = Vector2(3.00, 3.00)
 const MIN_ZOOM : Vector2 = Vector2(2.00, 2.00)
+
+@onready var player_camera : Camera2D = $PlayerCamera
+@onready var player_sprite : AnimatedSprite2D = $PlayerSprite
+@onready var animation_tree: AnimationTree = $AnimationTree
+@export var move_speed : int = 20
+var last_facing_direction: Vector2 = Vector2(0, 0) # direction of last movement
+var direction : Vector2 = Vector2.ZERO # direction of movement
+
 
 # find a better way to store and handle these
 var grass_walk : Array[String] = [
@@ -19,7 +21,6 @@ var grass_walk : Array[String] = [
 	]
 
 var dirt_walk : Array[String] = [
-	"res://Assets/SFX/Footsteps_DirtyGround_Walk_01.wav",
 	"res://Assets/SFX/Footsteps_DirtyGround_Walk_04.wav",
 	"res://Assets/SFX/Footsteps_DirtyGround_Walk_05.wav",
 	"res://Assets/SFX/Footsteps_DirtyGround_Walk_06.wav",
@@ -32,6 +33,8 @@ func _ready() -> void:
 	AudioManager.create_new_entity_stream("Player", "GrassWalk", "random", grass_walk)
 	AudioManager.create_new_entity_stream("Player", "DirtWalk", "random", dirt_walk)
 
+	animation_tree.active = true
+
 func set_camera_limit(left : int, right : int, top : int, bottom : int) -> void:
 	player_camera.limit_left = left
 	player_camera.limit_right = right
@@ -39,25 +42,19 @@ func set_camera_limit(left : int, right : int, top : int, bottom : int) -> void:
 	player_camera.limit_bottom = bottom
 
 func handle_player_animation() -> void:
-	if player_sprite.flip_h:
-		player_sprite.flip_h = false
-	# maybe delta not needed
-	if Input.is_action_pressed("key_down"):
-		is_moving = true
-		player_sprite.play("walking_front")
-	elif Input.is_action_pressed("key_up"):
-		is_moving = true
-		player_sprite.play("walking_back")
-	elif Input.is_action_pressed("key_left"):
-		is_moving = true
-		player_sprite.play("walking_side")
-	elif Input.is_action_pressed("key_right"):
-		is_moving = true
-		player_sprite.flip_h = true
-		player_sprite.play("walking_side")
-	else:
-		is_moving = false
-		player_sprite.play("idle")
+	var idle: bool = !velocity
+
+	if !idle:
+		last_facing_direction = velocity.normalized()
+
+	animation_tree.set("parameters/Idle/blend_position", last_facing_direction)
+	animation_tree.set("parameters/Walk/blend_position", last_facing_direction)
+
+func play_footstep() -> void:
+	var current_terrain: String = GameWorldManager.get_player_terrain()
+	if current_terrain:
+		var stream_name: String = current_terrain + "Walk"
+		AudioManager.play_entity_stream("Player", stream_name)
 
 func handle_camera_zoom() -> void:
 	if Input.is_action_just_pressed("zoom_in") && player_camera.zoom < MAX_ZOOM:
@@ -70,17 +67,10 @@ func handle_camera_zoom() -> void:
 func handle_player_movement(delta : float) -> void:
 	direction = Input.get_vector("key_left", "key_right", "key_up", "key_down")
 	velocity = direction * delta * move_speed * 200 # arbitrary const to speed up player
-
-	handle_player_animation()
-
-	# handle player sound
-	var current_terrain: String = GameWorldManager.get_player_terrain()
-	if is_moving && current_terrain:
-		var stream_name: String = current_terrain + "Walk"
-		AudioManager.play_entity_stream("Player", stream_name)
 	
 func _physics_process(delta: float) -> void:
 	handle_player_movement(delta)
+	handle_player_animation()
 
 	move_and_slide()
 
