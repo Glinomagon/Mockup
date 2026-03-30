@@ -14,9 +14,10 @@ func _ready() -> void:
 	var map_position : Vector2 = base_ground.map_to_local(used_rect.position)
 	
 	player.set_camera_limit(
-		map_position.x,
+		# Don't really know why the constants are needed but the value is ground tilesize/2
+		map_position.x - 16,
 		map_position.x + map_size.x,
-		map_position.y,
+		map_position.y - 16,
 		map_position.y + map_size.y
 	)
 
