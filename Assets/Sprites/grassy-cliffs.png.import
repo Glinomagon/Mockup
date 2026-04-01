@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bluv5cmta7vc6"
-path="res://.godot/imported/outdoor-simple.png-6c4af722b2c5211ee517509846cdc78d.ctex"
+uid="uid://b783tvgilo0cc"
+path="res://.godot/imported/grassy-cliffs.png-6e2dcbf56d3dd17a78e5bf90bb77f894.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/outdoor-simple.png"
-dest_files=["res://.godot/imported/outdoor-simple.png-6c4af722b2c5211ee517509846cdc78d.ctex"]
+source_file="res://Assets/Sprites/grassy-cliffs.png"
+dest_files=["res://.godot/imported/grassy-cliffs.png-6e2dcbf56d3dd17a78e5bf90bb77f894.ctex"]
 
 [params]
 

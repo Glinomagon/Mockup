@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bluv5cmta7vc6"
-path="res://.godot/imported/outdoor-simple.png-6c4af722b2c5211ee517509846cdc78d.ctex"
+uid="uid://cuqs14ua30qy4"
+path="res://.godot/imported/Malus-back.png-c6bf69b2891a9ad2c07d4802f95dc53d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/outdoor-simple.png"
-dest_files=["res://.godot/imported/outdoor-simple.png-6c4af722b2c5211ee517509846cdc78d.ctex"]
+source_file="res://Assets/Sprites/Malus-back.png"
+dest_files=["res://.godot/imported/Malus-back.png-c6bf69b2891a9ad2c07d4802f95dc53d.ctex"]
 
 [params]
 

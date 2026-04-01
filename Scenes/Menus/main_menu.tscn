@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://rqvqfnflflsl"]
+
+[ext_resource type="Theme" uid="uid://cksnuoryf67wk" path="res://Assets/GUI/Themes/main_menu_theme.tres" id="1_38aua"]
+[ext_resource type="Script" uid="uid://da4gbvurfy5rc" path="res://Scenes/Menus/main_menu.gd" id="2_pha2q"]
+
+[node name="MainMenu" type="Control" unique_id=2069142541]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_38aua")
+script = ExtResource("2_pha2q")
+
+[node name="BgColour" type="ColorRect" parent="." unique_id=61447819]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.40784314, 0.6039216, 0.30588236, 1)
+
+[node name="ScreenContainer" type="CenterContainer" parent="." unique_id=1042885574]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="MenuLayout" type="VBoxContainer" parent="ScreenContainer" unique_id=2042825377]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 24
+alignment = 1
+
+[node name="Title" type="Label" parent="ScreenContainer/MenuLayout" unique_id=1370990199]
+layout_mode = 2
+text = "Mockup"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="ScreenContainer/MenuLayout" unique_id=2085762229]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="ButtonsContainer" type="VBoxContainer" parent="ScreenContainer/MenuLayout/MarginContainer" unique_id=310932629]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="StartButton" type="Button" parent="ScreenContainer/MenuLayout/MarginContainer/ButtonsContainer" unique_id=1278977200]
+layout_mode = 2
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+text = "Start"
+
+[node name="SettingsButton" type="Button" parent="ScreenContainer/MenuLayout/MarginContainer/ButtonsContainer" unique_id=1813719417]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="ScreenContainer/MenuLayout/MarginContainer/ButtonsContainer" unique_id=487097962]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Quit"
+
+[connection signal="pressed" from="ScreenContainer/MenuLayout/MarginContainer/ButtonsContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/MenuLayout/MarginContainer/ButtonsContainer/SettingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="ScreenContainer/MenuLayout/MarginContainer/ButtonsContainer/ExitButton" to="." method="_on_exit_button_pressed"]

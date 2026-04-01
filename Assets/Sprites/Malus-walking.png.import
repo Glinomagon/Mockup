@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bluv5cmta7vc6"
-path="res://.godot/imported/outdoor-simple.png-6c4af722b2c5211ee517509846cdc78d.ctex"
+uid="uid://cne0gr48d5fyr"
+path="res://.godot/imported/Malus-walking.png-c695cd4013415c41693cb053d2e08ca1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/outdoor-simple.png"
-dest_files=["res://.godot/imported/outdoor-simple.png-6c4af722b2c5211ee517509846cdc78d.ctex"]
+source_file="res://Assets/Sprites/Malus-walking.png"
+dest_files=["res://.godot/imported/Malus-walking.png-c695cd4013415c41693cb053d2e08ca1.ctex"]
 
 [params]
 

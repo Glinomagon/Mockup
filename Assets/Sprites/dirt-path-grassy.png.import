@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bluv5cmta7vc6"
-path="res://.godot/imported/outdoor-simple.png-6c4af722b2c5211ee517509846cdc78d.ctex"
+uid="uid://dwf831kunenoc"
+path="res://.godot/imported/dirt-path-grassy.png-3d5a2d917d03d63713255c29fed1f948.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/outdoor-simple.png"
-dest_files=["res://.godot/imported/outdoor-simple.png-6c4af722b2c5211ee517509846cdc78d.ctex"]
+source_file="res://Assets/Sprites/dirt-path-grassy.png"
+dest_files=["res://.godot/imported/dirt-path-grassy.png-3d5a2d917d03d63713255c29fed1f948.ctex"]
 
 [params]
 
