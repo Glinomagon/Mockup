@@ -11,6 +11,7 @@ var CONFIG_VALUES: Dictionary = {
 		{
 			ConfigConstants.RESOLUTION: "",
 			ConfigConstants.WINDOW_MODE: "",
+			ConfigConstants.BORDERLESS_MODE: "",
 		}
 }
 
@@ -29,7 +30,7 @@ func _ready() -> void:
 func init_config() -> void:
 	for section in config.get_sections():
 		for value: String in CONFIG_VALUES[section].keys():
-			CONFIG_VALUES[section][value] = config.get_value(section, value)
+			CONFIG_VALUES[section][value] = config.get_value(section, value, "") # Default value ""
 
 func save_value(section: ConfigConstants.CONFIG_SECTION, value_name: String, value: String) -> void:
 	config.set_value(ConfigConstants.CONFIG_SECTION_TO_STRING[section], value_name, value)

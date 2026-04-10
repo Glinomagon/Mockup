@@ -1,0 +1,113 @@
+[gd_scene format=3 uid="uid://dgu3xsuugtjn1"]
+
+[ext_resource type="Script" uid="uid://dicuxsg1bqyw6" path="res://Scenes/Menus/main_settings.gd" id="1_jpu7e"]
+
+[node name="MainSettings" type="Control" unique_id=1020116102]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jpu7e")
+
+[node name="BgColour" type="ColorRect" parent="." unique_id=1277249191]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+color = Color(0.40784314, 0.6039216, 0.30588236, 1)
+
+[node name="ScreenContainer" type="MarginContainer" parent="." unique_id=1474009584]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="ScreenDivider" type="VBoxContainer" parent="ScreenContainer" unique_id=328866628]
+layout_mode = 2
+
+[node name="TitleContainer" type="MarginContainer" parent="ScreenContainer/ScreenDivider" unique_id=965359022]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_constants/margin_bottom = 16
+
+[node name="ScreenTitle" type="Label" parent="ScreenContainer/ScreenDivider/TitleContainer" unique_id=1923084807]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Settings"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SettingsContainer" type="HBoxContainer" parent="ScreenContainer/ScreenDivider" unique_id=1426552862]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Labels" type="VBoxContainer" parent="ScreenContainer/ScreenDivider/SettingsContainer" unique_id=269715629]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="WindowModeLabel" type="Label" parent="ScreenContainer/ScreenDivider/SettingsContainer/Labels" unique_id=2052667315]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Window Mode"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ResolutionLabel" type="Label" parent="ScreenContainer/ScreenDivider/SettingsContainer/Labels" unique_id=1284788014]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Resolution"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BorderlessLabel" type="Label" parent="ScreenContainer/ScreenDivider/SettingsContainer/Labels" unique_id=1747296590]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+text = "Borderless"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="ScreenContainer/ScreenDivider/SettingsContainer/Labels" unique_id=1297025030]
+layout_mode = 2
+
+[node name="Interactables" type="VBoxContainer" parent="ScreenContainer/ScreenDivider/SettingsContainer" unique_id=1254194390]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="WindowModeOption" type="OptionButton" parent="ScreenContainer/ScreenDivider/SettingsContainer/Interactables" unique_id=1468511350]
+layout_mode = 2
+
+[node name="ResolutionOption" type="OptionButton" parent="ScreenContainer/ScreenDivider/SettingsContainer/Interactables" unique_id=26979192]
+layout_mode = 2
+
+[node name="BorderlessToggle" type="CheckBox" parent="ScreenContainer/ScreenDivider/SettingsContainer/Interactables" unique_id=310984184]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+
+[node name="ButtonsContainer" type="MarginContainer" parent="ScreenContainer/ScreenDivider" unique_id=207946642]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_top = 16
+
+[node name="ButtonsDivider" type="HBoxContainer" parent="ScreenContainer/ScreenDivider/ButtonsContainer" unique_id=1407535095]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ExitButton" type="Button" parent="ScreenContainer/ScreenDivider/ButtonsContainer/ButtonsDivider" unique_id=731597898]
+layout_mode = 2
+text = "Exit"
+
+[connection signal="item_selected" from="ScreenContainer/ScreenDivider/SettingsContainer/Interactables/WindowModeOption" to="." method="_on_window_mode_option_item_selected"]
+[connection signal="item_selected" from="ScreenContainer/ScreenDivider/SettingsContainer/Interactables/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="toggled" from="ScreenContainer/ScreenDivider/SettingsContainer/Interactables/BorderlessToggle" to="." method="_on_borderless_toggle_toggled"]
+[connection signal="pressed" from="ScreenContainer/ScreenDivider/ButtonsContainer/ButtonsDivider/ExitButton" to="." method="_on_exit_button_pressed"]
