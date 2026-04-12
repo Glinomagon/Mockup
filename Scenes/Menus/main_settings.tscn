@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dgu3xsuugtjn1"]
 
 [ext_resource type="Script" uid="uid://dicuxsg1bqyw6" path="res://Scenes/Menus/main_settings.gd" id="1_jpu7e"]
+[ext_resource type="Theme" uid="uid://bwhn3537miywn" path="res://Assets/GUI/Themes/settings_theme.tres" id="2_qen5x"]
 
 [node name="MainSettings" type="Control" unique_id=1020116102]
 layout_mode = 3
@@ -24,6 +25,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_qen5x")
 theme_override_constants/margin_left = 24
 theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
