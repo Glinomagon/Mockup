@@ -1,0 +1,96 @@
+[gd_resource type="Theme" format=3 uid="uid://bwhn3537miywn"]
+
+[ext_resource type="StyleBox" uid="uid://nfi3tuqacsrq" path="res://Assets/GUI/Themes/Styleboxes/main_menu_buttons_stylebox.tres" id="1_ccxkq"]
+[ext_resource type="FontFile" uid="uid://2rl2oo4ls2ai" path="res://Assets/GUI/Fonts/Mockup_Serif.ttf" id="1_gfppx"]
+[ext_resource type="StyleBox" uid="uid://brd6qni34rwgd" path="res://Assets/GUI/Themes/Styleboxes/main_menu_button_disabled.tres" id="1_rkxk8"]
+[ext_resource type="StyleBox" uid="uid://k6pii641upm" path="res://Assets/GUI/Themes/Styleboxes/main_menu_button_pressed.tres" id="3_kh4pq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kh4pq"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gg1td"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d4qsl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_i2tfg"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_o8mqr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hjwfk"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wriif"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rkxk8"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xww7b"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5bdl3"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0dytt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kh4pq"]
+bg_color = Color(0.5568628, 0.3647059, 0.30980393, 1)
+expand_margin_top = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rkxk8"]
+bg_color = Color(0.9372549, 0.67058825, 0.39607844, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.5568628, 0.3647059, 0.30980393, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_color = Color(0.28911668, 0.38, 0.247, 0.56078434)
+shadow_offset = Vector2(2, 3)
+
+[resource]
+default_font = ExtResource("1_gfppx")
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/colors/font_focus_color = Color(1, 1, 1, 1)
+Button/colors/font_hover_color = Color(1, 1, 1, 1)
+Button/styles/disabled = ExtResource("1_rkxk8")
+Button/styles/disabled_mirrored = ExtResource("1_rkxk8")
+Button/styles/hover = ExtResource("1_ccxkq")
+Button/styles/hover_mirrored = ExtResource("3_kh4pq")
+Button/styles/hover_pressed = ExtResource("3_kh4pq")
+Button/styles/hover_pressed_mirrored = ExtResource("3_kh4pq")
+Button/styles/normal = ExtResource("1_ccxkq")
+Button/styles/normal_mirrored = ExtResource("1_ccxkq")
+Button/styles/pressed = ExtResource("3_kh4pq")
+Button/styles/pressed_mirrored = ExtResource("3_kh4pq")
+CheckBox/colors/checkbox_checked_color = Color(1, 1, 1, 1)
+CheckBox/colors/checkbox_unchecked_color = Color(1, 1, 1, 1)
+CheckBox/colors/font_color = Color(1, 1, 1, 1)
+CheckBox/colors/font_focus_color = Color(1, 1, 1, 1)
+CheckBox/colors/font_hover_color = Color(1, 1, 1, 1)
+CheckBox/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
+CheckBox/colors/font_pressed_color = Color(1, 1, 1, 1)
+CheckBox/styles/disabled = SubResource("StyleBoxEmpty_kh4pq")
+CheckBox/styles/disabled_mirrored = SubResource("StyleBoxEmpty_gg1td")
+CheckBox/styles/focus = SubResource("StyleBoxEmpty_d4qsl")
+CheckBox/styles/hover = SubResource("StyleBoxEmpty_i2tfg")
+CheckBox/styles/hover_mirrored = SubResource("StyleBoxEmpty_o8mqr")
+CheckBox/styles/hover_pressed = SubResource("StyleBoxEmpty_hjwfk")
+CheckBox/styles/hover_pressed_mirrored = SubResource("StyleBoxEmpty_wriif")
+CheckBox/styles/normal = SubResource("StyleBoxEmpty_rkxk8")
+CheckBox/styles/normal_mirrored = SubResource("StyleBoxEmpty_xww7b")
+CheckBox/styles/pressed = SubResource("StyleBoxEmpty_5bdl3")
+CheckBox/styles/pressed_mirrored = SubResource("StyleBoxEmpty_0dytt")
+OptionButton/styles/disabled = ExtResource("1_rkxk8")
+OptionButton/styles/disabled_mirrored = ExtResource("1_rkxk8")
+OptionButton/styles/focus = ExtResource("1_ccxkq")
+OptionButton/styles/hover = ExtResource("1_ccxkq")
+OptionButton/styles/hover_mirrored = ExtResource("1_ccxkq")
+OptionButton/styles/hover_pressed = ExtResource("1_ccxkq")
+OptionButton/styles/hover_pressed_mirrored = ExtResource("1_ccxkq")
+OptionButton/styles/normal = ExtResource("1_ccxkq")
+OptionButton/styles/normal_mirrored = ExtResource("1_ccxkq")
+OptionButton/styles/pressed = ExtResource("1_ccxkq")
+OptionButton/styles/pressed_mirrored = ExtResource("1_ccxkq")
+PopupMenu/colors/font_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_hover_color = Color(1, 1, 1, 1)
+PopupMenu/colors/font_separator_color = Color(1, 1, 1, 1)
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_kh4pq")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_rkxk8")
