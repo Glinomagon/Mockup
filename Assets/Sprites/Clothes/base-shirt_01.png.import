@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bghgb0ek3woq8"
-path="res://.godot/imported/Malus-side.png-af3a82b9309ecbae560a345fd9940060.ctex"
+uid="uid://0vqltf8smkp4"
+path="res://.godot/imported/base-shirt_01.png-f1f01c227206501eaf7287b1270a643f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Malus-side.png"
-dest_files=["res://.godot/imported/Malus-side.png-af3a82b9309ecbae560a345fd9940060.ctex"]
+source_file="res://Assets/Sprites/Clothes/base-shirt_01.png"
+dest_files=["res://.godot/imported/base-shirt_01.png-f1f01c227206501eaf7287b1270a643f.ctex"]
 
 [params]
 

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bmvr0mpxjse2r"]
+
+[ext_resource type="Script" uid="uid://d3braiqsqtrya" path="res://Scenes/Component/swatch.gd" id="1_6o3sr"]
+
+[node name="Swatch" type="Button" unique_id=1205255649]
+custom_minimum_size = Vector2(22, 22)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 11.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6o3sr")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

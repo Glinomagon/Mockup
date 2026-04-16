@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ca77udh1yuq2p"
-path="res://.godot/imported/dirt-path-grassy.png-9c7cbb7631580d9047f877d95afb085e.ctex"
+uid="uid://k2l71ts6tr25"
+path="res://.godot/imported/base_sprite_pupils-walking.png-3c0214145c98690d6da200536ba5fd3d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/dirt-path-grassy.png"
-dest_files=["res://.godot/imported/dirt-path-grassy.png-9c7cbb7631580d9047f877d95afb085e.ctex"]
+source_file="res://Assets/Sprites/BaseSprite/base_sprite_pupils-walking.png"
+dest_files=["res://.godot/imported/base_sprite_pupils-walking.png-3c0214145c98690d6da200536ba5fd3d.ctex"]
 
 [params]
 

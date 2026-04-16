@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dt4bskeh5up78"]
 
 [ext_resource type="Script" uid="uid://0daxsqrfawy8" path="res://Scenes/Game/player.gd" id="1_8jfvq"]
-[ext_resource type="Texture2D" uid="uid://cne0gr48d5fyr" path="res://Assets/Malus-walking.png" id="2_n3abv"]
-[ext_resource type="Texture2D" uid="uid://cuqs14ua30qy4" path="res://Assets/Malus-back.png" id="3_vi63e"]
-[ext_resource type="Texture2D" uid="uid://f37kdprwfnwg" path="res://Assets/Malus-side.png" id="4_ajor6"]
+[ext_resource type="Texture2D" uid="uid://cne0gr48d5fyr" path="res://Assets/Sprites/Malus-walking.png" id="2_n3abv"]
+[ext_resource type="Texture2D" uid="uid://cuqs14ua30qy4" path="res://Assets/Sprites/Malus-back.png" id="3_vi63e"]
+[ext_resource type="Texture2D" uid="uid://f37kdprwfnwg" path="res://Assets/Sprites/Malus-side.png" id="4_ajor6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_imb1n"]
 atlas = ExtResource("2_n3abv")

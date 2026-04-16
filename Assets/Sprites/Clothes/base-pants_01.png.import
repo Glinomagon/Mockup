@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bluv5cmta7vc6"
-path="res://.godot/imported/outdoor-simple.png-6c4af722b2c5211ee517509846cdc78d.ctex"
+uid="uid://bqjco355ydgb3"
+path="res://.godot/imported/base-pants_01.png-aae67272639f6a38f424e306f4188e29.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/outdoor-simple.png"
-dest_files=["res://.godot/imported/outdoor-simple.png-6c4af722b2c5211ee517509846cdc78d.ctex"]
+source_file="res://Assets/Sprites/Clothes/base-pants_01.png"
+dest_files=["res://.godot/imported/base-pants_01.png-aae67272639f6a38f424e306f4188e29.ctex"]
 
 [params]
 

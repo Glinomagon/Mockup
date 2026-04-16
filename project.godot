@@ -16,6 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Mockup"
 run/main_scene="uid://rqvqfnflflsl"
+config/use_custom_user_dir=true
 config/features=PackedStringArray("4.6", "Forward Plus")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -31,6 +32,7 @@ ConfigManager="*uid://u0idoo1v6b6x"
 Switcher="*uid://d28ki1mmaoxfm"
 Directory="*uid://2yw6idvkxpsc"
 GuiAutoload="*uid://yuy4sy1373dx"
+Global="*uid://c7rwk4yhceda7"
 GameWorldManager="*uid://bj8k4abk1s5i"
 AudioManager="*uid://b8se85tphph26"
 

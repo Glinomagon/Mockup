@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://yq5ha2s661wt"
-path="res://.godot/imported/outdoor-simple2.png-6fe2d7c05bf40f3d2d53879009266dff.ctex"
+uid="uid://sv7n5iokime4"
+path="res://.godot/imported/base_hair.png-3715d425f9c04cee4f87a8d5df866d47.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/outdoor-simple2.png"
-dest_files=["res://.godot/imported/outdoor-simple2.png-6fe2d7c05bf40f3d2d53879009266dff.ctex"]
+source_file="res://Assets/Sprites/BaseSprite/base_hair.png"
+dest_files=["res://.godot/imported/base_hair.png-3715d425f9c04cee4f87a8d5df866d47.ctex"]
 
 [params]
 
