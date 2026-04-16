@@ -1,0 +1,114 @@
+[gd_scene format=3 uid="uid://b2svhk7jskbl7"]
+
+[ext_resource type="Script" uid="uid://bc4xr8j3wiiur" path="res://Scenes/Component/colour_picker.gd" id="1_bdgus"]
+
+[sub_resource type="Theme" id="Theme_bdgus"]
+
+[sub_resource type="Theme" id="Theme_ywdqa"]
+
+[node name="ColourPicker" type="Control" unique_id=1793010015]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_bdgus")
+script = ExtResource("1_bdgus")
+
+[node name="Sections" type="HBoxContainer" parent="." unique_id=755316283]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LabelsContainer" type="MarginContainer" parent="Sections" unique_id=1000541314]
+layout_mode = 2
+theme_override_constants/margin_right = 6
+
+[node name="Labels" type="VBoxContainer" parent="Sections/LabelsContainer" unique_id=454695401]
+layout_mode = 2
+
+[node name="RedLabel" type="Label" parent="Sections/LabelsContainer/Labels" unique_id=338839157]
+layout_mode = 2
+text = "R:"
+vertical_alignment = 1
+
+[node name="GreenLabel" type="Label" parent="Sections/LabelsContainer/Labels" unique_id=1763660547]
+layout_mode = 2
+text = "G:"
+vertical_alignment = 1
+
+[node name="BlueLabel" type="Label" parent="Sections/LabelsContainer/Labels" unique_id=845540724]
+layout_mode = 2
+text = "B:"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="SlidersContainer" type="MarginContainer" parent="Sections" unique_id=2072305858]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_right = 6
+
+[node name="Sliders" type="VBoxContainer" parent="Sections/SlidersContainer" unique_id=718665916]
+layout_mode = 2
+
+[node name="RedSlider" type="HSlider" parent="Sections/SlidersContainer/Sliders" unique_id=662029187]
+layout_mode = 2
+theme = SubResource("Theme_ywdqa")
+
+[node name="GreenSlider" type="HSlider" parent="Sections/SlidersContainer/Sliders" unique_id=1634661388]
+layout_mode = 2
+
+[node name="BlueSlider" type="HSlider" parent="Sections/SlidersContainer/Sliders" unique_id=1614239661]
+layout_mode = 2
+max_value = 255.0
+rounded = true
+ticks_position = 3
+
+[node name="ValuesContainer" type="MarginContainer" parent="Sections" unique_id=1954394646]
+layout_mode = 2
+theme_override_constants/margin_left = 6
+
+[node name="Values" type="VBoxContainer" parent="Sections/ValuesContainer" unique_id=363204599]
+layout_mode = 2
+
+[node name="RedValue" type="Label" parent="Sections/ValuesContainer/Values" unique_id=2045635601]
+visible = false
+layout_mode = 2
+text = "255"
+vertical_alignment = 1
+
+[node name="GreenValue" type="Label" parent="Sections/ValuesContainer/Values" unique_id=1007801631]
+visible = false
+layout_mode = 2
+text = "255"
+vertical_alignment = 1
+
+[node name="BlueValue" type="Label" parent="Sections/ValuesContainer/Values" unique_id=710731655]
+visible = false
+layout_mode = 2
+text = "255"
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="RedEdit" type="LineEdit" parent="Sections/ValuesContainer/Values" unique_id=1370013834]
+layout_mode = 2
+
+[node name="GreenEdit" type="LineEdit" parent="Sections/ValuesContainer/Values" unique_id=757032035]
+layout_mode = 2
+
+[node name="BlueEdit" type="LineEdit" parent="Sections/ValuesContainer/Values" unique_id=1195107819]
+layout_mode = 2
+
+[connection signal="value_changed" from="Sections/SlidersContainer/Sliders/RedSlider" to="." method="_on_red_slider_value_changed"]
+[connection signal="value_changed" from="Sections/SlidersContainer/Sliders/GreenSlider" to="." method="_on_green_slider_value_changed"]
+[connection signal="value_changed" from="Sections/SlidersContainer/Sliders/BlueSlider" to="." method="_on_blue_slider_value_changed"]
+[connection signal="text_submitted" from="Sections/ValuesContainer/Values/RedEdit" to="." method="_on_red_edit_text_submitted"]
+[connection signal="text_submitted" from="Sections/ValuesContainer/Values/GreenEdit" to="." method="_on_green_edit_text_submitted"]
+[connection signal="text_submitted" from="Sections/ValuesContainer/Values/BlueEdit" to="." method="_on_blue_edit_text_submitted"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dcrupug3c717"
-path="res://.godot/imported/Malus-back.png-e31cf24d4447aeb5442cdce1f1d698ca.ctex"
+uid="uid://bevg6jm2kej0e"
+path="res://.godot/imported/base_sprite-_eyes-walking.png-c6df3db3435c2d56c9bf81343ea977b1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Malus-back.png"
-dest_files=["res://.godot/imported/Malus-back.png-e31cf24d4447aeb5442cdce1f1d698ca.ctex"]
+source_file="res://Assets/Sprites/BaseSprite/base_sprite-_eyes-walking.png"
+dest_files=["res://.godot/imported/base_sprite-_eyes-walking.png-c6df3db3435c2d56c9bf81343ea977b1.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b7hns80u127p6"
-path="res://.godot/imported/Malus-walking.png-babbd4c66d8db5b78224f82a8f0082f7.ctex"
+uid="uid://di2a14jflwk7j"
+path="res://.godot/imported/base-shirt_03.png-f9f5cf9b05d6c4d9f275a5a51971b55f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Malus-walking.png"
-dest_files=["res://.godot/imported/Malus-walking.png-babbd4c66d8db5b78224f82a8f0082f7.ctex"]
+source_file="res://Assets/Sprites/Clothes/base-shirt_03.png"
+dest_files=["res://.godot/imported/base-shirt_03.png-f9f5cf9b05d6c4d9f275a5a51971b55f.ctex"]
 
 [params]
 

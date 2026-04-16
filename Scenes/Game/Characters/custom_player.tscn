@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://k24u41xdugrp"]
+
+[ext_resource type="Script" uid="uid://os652fti0tds" path="res://Scenes/Game/Characters/custom_player.gd" id="1_2cjbm"]
+[ext_resource type="Texture2D" uid="uid://ca526cdsbub06" path="res://Assets/Sprites/BaseSprite/base_sprite-walking.png" id="1_2dxyn"]
+[ext_resource type="Texture2D" uid="uid://bevg6jm2kej0e" path="res://Assets/Sprites/BaseSprite/base_sprite-_eyes-walking.png" id="3_ayqvk"]
+[ext_resource type="Texture2D" uid="uid://k2l71ts6tr25" path="res://Assets/Sprites/BaseSprite/base_sprite_pupils-walking.png" id="4_rbkee"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3gc7d"]
+radius = 2.0
+height = 10.0
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_2dxyn"]
+
+[node name="CustomPlayer" type="CharacterBody2D" unique_id=1992519770]
+script = ExtResource("1_2cjbm")
+
+[node name="SpriteGroup" type="Node2D" parent="." unique_id=978776921]
+
+[node name="BodyBase" type="Sprite2D" parent="SpriteGroup" unique_id=1476724150]
+texture = ExtResource("1_2dxyn")
+hframes = 8
+
+[node name="Eyes" type="Sprite2D" parent="SpriteGroup" unique_id=1558481328]
+texture = ExtResource("3_ayqvk")
+hframes = 8
+
+[node name="Pupils" type="Sprite2D" parent="SpriteGroup" unique_id=1320795498]
+texture = ExtResource("4_rbkee")
+hframes = 8
+
+[node name="Hair" type="Sprite2D" parent="SpriteGroup" unique_id=1120242249]
+hframes = 5
+vframes = 3
+
+[node name="Top" type="Sprite2D" parent="SpriteGroup" unique_id=68317320]
+
+[node name="Bottom" type="Sprite2D" parent="SpriteGroup" unique_id=964167918]
+
+[node name="PlayerCollision" type="CollisionShape2D" parent="." unique_id=954002311]
+position = Vector2(0, 14)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_3gc7d")
+debug_color = Color(0.025088925, 0.6026581, 0.6824434, 0.41960785)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=898087954]
+libraries/ = SubResource("AnimationLibrary_2dxyn")
