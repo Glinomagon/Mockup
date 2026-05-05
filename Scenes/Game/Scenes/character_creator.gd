@@ -12,67 +12,19 @@ var BODY_PART_TO_STRING: Dictionary = {
 	BODY_PART.BOTTOM: "Bottom"
 }
 
-# MOVE THESE HARD CODED STUFF INTO A DIRECTORY
-
 var swatches: Dictionary = {
-	"skin": [
-		"#6a4424",
-		"#8d5524",
-		"#c68642",
-		"#e0ac69",
-		"#f1c27d",
-		"#ffdbac",
-		"#ffecac",
-	],
-	"eyes": [
-		"#3c1804",
-		"#9a7238",
-		"#40ab61",
-		"#369991",
-		"#49addf",
-		"#989696",
-	],
-	"hair": [
-		"#241c11",
-		"#362a20",
-		"#5c4028",
-		"#4f1a00",
-		"#9a3300",
-		"#c6a969",
-		"#fbe7a1",
-		"#fdee87",
-		"#9b30ff",
-		"#8d9092",
-		"#c30101",
-		"#138510",
-		"#095f92"
-	],
-	"clothes": [
-		"#ffffff",
-		"#c30101",
-		"#138510",
-		"#095f92",
-		"#9b30ff",
-		"#ffff00",
-		"#241c11",
-		"#989696",
-		"#9a7238",
-	]
+	"skin": Global.SKIN_COLOURS,
+	"eyes": Global.EYE_COLOURS,
+	"hair": Global.HAIR_COLOURS,
+	"clothes": Global.CLOTHING_COLOURS
 }
 
 var hair_dictionary: Dictionary = {}
 var hair_dictionary_keys: Array = []
 
 var clothing_textures: Dictionary = {
-	BODY_PART.TOP: [
-		"res://Assets/Sprites/Clothes/base-shirt_01.png",
-		"res://Assets/Sprites/Clothes/base-shirt_02.png",
-		"res://Assets/Sprites/Clothes/base-shirt_03.png"
-	],
-	BODY_PART.BOTTOM: [
-		"res://Assets/Sprites/Clothes/base-pants_01.png",
-		"res://Assets/Sprites/Clothes/base-pants_02.png"
-	],
+	BODY_PART.TOP: Global.CLOTHES_TOP_PATH,
+	BODY_PART.BOTTOM: Global.CLOTHES_BOTTOMS_PATH,
 }
 
 var clothing_dictionary: Dictionary = {
