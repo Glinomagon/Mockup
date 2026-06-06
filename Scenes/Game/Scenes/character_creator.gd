@@ -44,18 +44,28 @@ var current_clothing_index: Dictionary = {
 
 var tabs: Dictionary
 
-@onready var custom_character: CharacterBody2D = $DisplayContainer/SpriteDisplay/CustomPlayer
+var colours: Dictionary[BODY_PART, Color] = {
+	BODY_PART.BODY: Color(0, 0, 0),
+	BODY_PART.EYES: Color(0, 0, 0),
+	BODY_PART.HAIR: Color(0, 0, 0),
+	BODY_PART.TOP: Color(0, 0, 0),
+	BODY_PART.BOTTOM: Color(0, 0, 0),
+}
+
+@onready var custom_character: CharacterBody2D = $DisplayContainer/SpriteDisplay/ContentDivider/Container/CustomPlayer
 var hair_texture: Texture2D
 var current_hair_index: int
 
 var top_textures: Array[Texture2D]
 var bottom_textures: Array[Texture2D]
 
-@onready var body_tab: TabBar = $InterfaceContainer/TabContainer/Body
-@onready var eyes_tab: TabBar = $InterfaceContainer/TabContainer/Eyes
-@onready var hair_tab: TabBar = $InterfaceContainer/TabContainer/Hair
-@onready var top_tab: TabBar = $InterfaceContainer/TabContainer/Top
-@onready var bottom_tab: TabBar = $InterfaceContainer/TabContainer/Bottom
+@onready var body_tab: TabBar = $InterfaceContainer/MarginContainer/TabContainer/Body
+@onready var eyes_tab: TabBar = $InterfaceContainer/MarginContainer/TabContainer/Eyes
+@onready var hair_tab: TabBar = $InterfaceContainer/MarginContainer/TabContainer/Hair
+@onready var top_tab: TabBar = $InterfaceContainer/MarginContainer/TabContainer/Top
+@onready var bottom_tab: TabBar = $InterfaceContainer/MarginContainer/TabContainer/Bottom
+
+@onready var buttons_container: HBoxContainer = $DisplayContainer/SpriteDisplay/ContentDivider/CenterContainer/ButtonsContainer
 
 var current_tab: BODY_PART = BODY_PART.BODY
 
@@ -74,9 +84,11 @@ func _ready() -> void:
 	_connect_colour_picker_sliders()
 	_set_default_colours()
 
+	custom_character.set_view_only(true) # temporary solution to prevent custom character from moving in character creator
+
 func _init_textures() -> void:
 	# load hair texture
-	hair_texture = load(Global.PlayerTextures[Global.BODY_PART.HAIR])
+	hair_texture = load(Global.PLAYER_TEXTURES[Global.BODY_PART.HAIR])
 
 	var hair_sprite: Sprite2D = custom_character.get_node("SpriteGroup/Hair")
 	hair_sprite.hframes = 5
@@ -109,6 +121,8 @@ func _init_row_sizes() -> void:
 		var tab_swatches: GridContainer = tabs[tab].get_node("ContentContainer/ContentDivider/Swatches")
 		for swatch: Button in tab_swatches.get_children():
 			swatch.custom_minimum_size = swatch_min_size
+	
+	buttons_container.custom_minimum_size = Vector2(0, ROW_HEIGHT)
 
 func _init_default_swatches() -> void:
 	for tab: BODY_PART in tabs:
@@ -174,6 +188,7 @@ func _set_default_colours() -> void:
 		var part: BODY_PART = BODY_PART.values()[i]
 		set_colour(swatch_colours[i], part)
 		tabs[part].get_node("ContentContainer/ContentDivider/ColourPicker").set_colour(swatch_colours[i], true)
+		colours[part] = swatch_colours[i]
 
 func set_colour(colour: Color, part: BODY_PART) -> void:
 	var tab_name: String
@@ -189,6 +204,7 @@ func set_colour(colour: Color, part: BODY_PART) -> void:
 		BODY_PART.BOTTOM:
 			tab_name = "Bottom"
 	custom_character.get_node("SpriteGroup/" + tab_name).self_modulate = colour
+	colours[part] = colour
 
 func set_hair(hair_index: int) -> void:
 	var hair_key: String = hair_dictionary_keys[hair_index]
@@ -222,7 +238,47 @@ func _change_selection(direction: int) -> void:
 			var num_keys: int = clothing_dictionary_keys[current_tab].size()
 			current_clothing_index[current_tab] = (current_clothing_index[current_tab] + direction + num_keys) % num_keys
 			set_clothes(current_tab, current_clothing_index[current_tab])
-		
+
+func _save_template() -> void:
+	var new_template: Character = Character.new()
+	# save frame coords for hair texture map
+	new_template.set_hair(hair_dictionary[hair_dictionary_keys[current_hair_index]])
+	# save colours
+	new_template.set_part_colour(Global.BODY_PART.BODY, colours[BODY_PART.BODY])
+	new_template.set_part_colour(Global.BODY_PART.PUPILS, colours[BODY_PART.EYES])
+	new_template.set_part_colour(Global.BODY_PART.HAIR, colours[BODY_PART.HAIR])
+
+	# save clothes
+	var top: Clothing = Clothing.new()
+	var bottom: Clothing = Clothing.new()
+
+	var top_key: String = clothing_dictionary_keys[BODY_PART.TOP][current_clothing_index[BODY_PART.TOP]]
+	var top_texture: Texture = clothing_dictionary[BODY_PART.TOP][top_key]
+
+	var bottom_key: String = clothing_dictionary_keys[BODY_PART.BOTTOM][current_clothing_index[BODY_PART.BOTTOM]]
+	var bottom_texture: Texture = clothing_dictionary[BODY_PART.BOTTOM][bottom_key]
+
+	top.init(
+		"Default Top",
+		top_texture,
+		colours[BODY_PART.TOP],
+		Global.CLOTHING_TYPE.TOP
+	)
+	bottom.init(
+		"Default Bottom",
+		bottom_texture,
+		colours[BODY_PART.BOTTOM],
+		Global.CLOTHING_TYPE.BOTTOM
+	)
+	new_template.set_clothing(Global.CLOTHING_TYPE.TOP, top)
+	new_template.set_clothing(Global.CLOTHING_TYPE.BOTTOM, bottom)
+
+	# @TODO: CREATE A RESOURCE LOADER/SAVER SYSTEM, ALSO ALLOW THE TEMPLATES TO BE NAMED
+	# save to disk
+	var err: int = ResourceSaver.save(new_template, "user://player.tres")
+	if err != OK:
+		push_warning("Player template not saved!")
+
 # signals
 func _on_colour_change(colour: Color) -> void:
 	set_colour(colour, current_tab)
@@ -239,3 +295,9 @@ func _on_prev_pressed() -> void:
 
 func _on_next_pressed() -> void:
 	_change_selection(1)
+
+func _on_save_pressed() -> void:
+	_save_template()
+
+func _on_start_pressed() -> void:
+	print("TRANSITION TO GAME MAP")

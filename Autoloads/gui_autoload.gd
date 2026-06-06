@@ -6,14 +6,8 @@ enum WINDOW_MODE { FULLSCREEN, WINDOWED }
 
 var resolutions: Dictionary = {
 	"640x360": Vector2i(640, 360),
-	"854x480": Vector2i(854, 480),
-	"960x540": Vector2i(960, 540),
-	"1024x576": Vector2i(1024, 576),
 	"1280x720": Vector2i(1280, 720),
-	"1366x768": Vector2i(1366, 768),
-	"1600x900": Vector2i(1600, 900),
 	"1920x1080": Vector2i(1920, 1080),
-	"2048x1152": Vector2i(2048, 1152),
 	"2560x1440": Vector2i(2560, 1440),
 }
 
