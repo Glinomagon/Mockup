@@ -4,14 +4,50 @@ extends Node
 enum BODY_PART { BODY, EYES, PUPILS, HAIR }
 enum CHARACTER_DIRECTION { FRONT, SIDE, BACK }
 
-var PlayerTextures: Dictionary = {
-  BODY_PART.BODY: {
-    CHARACTER_DIRECTION.FRONT: "res://Assets/Sprites/BaseSprite/base_sprite-walking.png"
-  },
+const PLAYER_MOVE_SPEED: float = 20.0
+
+const PLAYER_TEXTURES: Dictionary = {
+  BODY_PART.BODY: "res://Assets/Sprites/BaseSprite/base_sprite-walking.png",
   BODY_PART.EYES: "res://Assets/Sprites/BaseSprite/base_sprite-_eyes-walking.png",
   BODY_PART.PUPILS: "res://Assets/Sprites/BaseSprite/base_sprite_pupils-walking.png",
   BODY_PART.HAIR: "res://Assets/Sprites/BaseSprite/base_hair.png",
 }
+
+const PLAYER_FOOTSTEPS: Dictionary[String, Array] = {
+  "grass_walk": [
+    "res://Assets/SFX/Footsteps_Walk_Grass_Mono_50.wav",
+    "res://Assets/SFX/Footsteps_Walk_Grass_Mono_49.wav",
+    "res://Assets/SFX/Footsteps_Walk_Grass_Mono_48.wav",
+    "res://Assets/SFX/Footsteps_Walk_Grass_Mono_47.wav",
+    "res://Assets/SFX/Footsteps_Walk_Grass_Mono_46.wav"
+  ],
+  "dirt_walk": [
+    "res://Assets/SFX/Footsteps_DirtyGround_Walk_04.wav",
+    "res://Assets/SFX/Footsteps_DirtyGround_Walk_05.wav",
+    "res://Assets/SFX/Footsteps_DirtyGround_Walk_06.wav",
+    "res://Assets/SFX/Footsteps_DirtyGround_Walk_09.wav"
+  ],
+}
+
+func get_player_footsteps(sound_library: String) -> Array[String]:
+  match sound_library:
+    "grass_walk":
+      return [
+        "res://Assets/SFX/Footsteps_Walk_Grass_Mono_50.wav",
+        "res://Assets/SFX/Footsteps_Walk_Grass_Mono_49.wav",
+        "res://Assets/SFX/Footsteps_Walk_Grass_Mono_48.wav",
+        "res://Assets/SFX/Footsteps_Walk_Grass_Mono_47.wav",
+        "res://Assets/SFX/Footsteps_Walk_Grass_Mono_46.wav"
+      ]
+    "dirt_walk":
+      return [
+        "res://Assets/SFX/Footsteps_DirtyGround_Walk_04.wav",
+        "res://Assets/SFX/Footsteps_DirtyGround_Walk_05.wav",
+        "res://Assets/SFX/Footsteps_DirtyGround_Walk_06.wav",
+        "res://Assets/SFX/Footsteps_DirtyGround_Walk_09.wav"
+      ]
+    _:
+      return []
 
 # Custom player related
 const CLOTHES_TOP_PATH: Array = [
@@ -71,3 +107,6 @@ const CLOTHING_COLOURS: Array = [
   "#989696",
   "#9a7238",
 ]
+
+# Clothing related
+enum CLOTHING_TYPE { TOP, BOTTOM }
